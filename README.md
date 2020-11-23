@@ -4,4 +4,4 @@ They are what I use for moving things to my SD card. There is also a few other p
 
 `mmv origin,destination origin2,destination2...`
 
-To be able to use this you must have run `termux-setup-storage`.
+To be able to use this you must have run `termux-setup-storage`. (And you must be running Termux :P)
