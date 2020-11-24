@@ -2,6 +2,14 @@ import os
 
 def run(command, success="", error=""):
 
+    if success == "":
+
+        success = f"{command} was successfully run!"
+
+    if error == "":
+
+        error = f"{command} failed to run!"
+
     if not os.system(command):
 
         os.system("tput setaf 2")
