@@ -48,7 +48,7 @@ with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "a") as bash:
         bash.write("\n")
         for file in pyfiles:
             bash.write(f"alias {file.replace('.py', '')}=\"python3 {os.path.abspath(file)}\"\n")
-            print(f"alias {file.replace('.py', '')}=\"python3 {os.path.abspath(file)}\" >> $PREFIX/etc/bash.bashrc\n")
+            #print(f"alias {file.replace('.py', '')}=\"python3 {os.path.abspath(file)}\" >> $PREFIX/etc/bash.bashrc\n")
 
 print("Done!")
 
