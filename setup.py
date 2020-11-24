@@ -1,5 +1,5 @@
 import os
-
+from os import path
 
 
 pyfiles=[]
@@ -17,7 +17,9 @@ print("")
 
 print("-- Validating Files --")
 
-with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as bash:
+bashfile = "/data/data/com.termux/files/usr/etc/bash.bashrc" if os.path.exists("/data/data/com.termux/") else os.path.expanduser("~/.bashrc")
+
+with open(bashfile, "r") as bash:
     print(f"-- Searching {pyfiles} --")
     bash2=bash.readlines()
 
@@ -43,9 +45,9 @@ for number in range(len(pyfiles)*2):
 for file in pyfiles:
     print(f"{file} is valid!")
 
-print(f"--- Editing /data/data/com.termux/files/usr/etc/bash.bashrc ---")
+print(f"--- Editing {bashfile} ---")
 
-with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "a") as bash:
+with open(bashfile, "a") as bash:
     if len(pyfiles)>0:
         bash.write("\n")
         for file in pyfiles:
