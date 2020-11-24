@@ -11,3 +11,8 @@ Other examples:
 `sym hello.txt file2.py`
 `msym hello.txt textfiles/hello.txt`
 `mvsd hello.txt file2.py`
+
+To make these available everywhere run:
+```bash
+python3 setup.py
+```
