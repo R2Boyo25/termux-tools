@@ -3,7 +3,7 @@ import os, runner
 def run(command):
     runner.run(command, f"{command} run successfully!", f"{command} failed to run!")
 
-if not os.path.exists("/data/data/com.termux"): os.system("tput setaf 1");print("This is not a Termux environment! Exiting...");os.system("tput sgr0");quit()
+runner.checkreqs()
 
 print("-- Starting Installer --")
 
