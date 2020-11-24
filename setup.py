@@ -1,5 +1,7 @@
 import os
 
+
+
 pyfiles=[]
 
 print("- Looking For Files -")
@@ -7,7 +9,7 @@ print("- Looking For Files -")
 for root, dirs, files in os.walk("."):
     for file in files:
         print(file, end=" - ")
-        if file.lower().endswith(".py") and file.split("/")[-1]!="setup.py":
+        if file.lower().endswith(".py") and file.split("/")[-1] not in ("setup.py", "setup-termux.py"):
             pyfiles.append(file)
     break
 
