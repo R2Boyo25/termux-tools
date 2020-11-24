@@ -25,4 +25,13 @@ for program in progs:
 for command in commands:
     run(command)
 
+print("Editing PS1 in bash.bashrc")
+
+with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file:
+    if not "PS1='\w \$ '" in file.read():
+        with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "a") as file2:
+            file2.write("\n"+r"PS1='\w \$ '")
+
 print("-- Done!--")
+
+
