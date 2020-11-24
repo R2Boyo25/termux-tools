@@ -4,11 +4,19 @@ def run(command, success="", error=""):
 
     if not os.system(command):
 
-        os.system("tput setaf 2");print(success);os.system("tput sgr0")
+        os.system("tput setaf 2")
+        
+        print(success)
+
+        os.system("tput sgr0")
 
     else:
 
-        os.system("tput setaf 1");print(error);os.system("tput sgr0")
+        os.system("tput setaf 1")
+
+        print(error)
+
+        os.system("tput sgr0")
 
 def checktermux():
 
@@ -45,6 +53,7 @@ def cprint(text, color):
     if not c.isdigit():
         
         raise Exception("Argument 'color' must be a number")
+
     os.system(f"tput setaf {c}")
 
     print(text)
