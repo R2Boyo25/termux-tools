@@ -1,10 +1,7 @@
-import os
+import os, runner
 
 def run(command):
-    if not os.system(command):
-        os.system("tput setaf 2");print(f"{command} run successfully!");os.system("tput sgr0")
-    else:
-        os.system("tput setaf 1");print(f"{command} failed to run!");os.system("tput sgr0")
+    runner.run(command, f"{command} run successfully!", f"{command} failed to run!")
 
 print("-- Starting Installer --")
 
