@@ -38,3 +38,15 @@ def checkreqs():
     checktermux()
 
     checksd()
+
+def cprint(text, color):
+    c=str(color)
+
+    if not c.isdigit():
+        
+        raise Exception("Argument 'color' must be a number")
+    os.system(f"tput setaf {c}")
+
+    print(text)
+
+    os.system("tput sgr0")

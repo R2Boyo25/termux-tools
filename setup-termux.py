@@ -1,12 +1,21 @@
 import os, runner
 
+cprint = runner.cprint
+
 def run(command):
     
     runner.run(command, f"{command} run successfully!", f"{command} failed to run!")
 
 runner.checkreqs()
 
-print("-- Starting Installer --")
+if not os.path.exists(os.path.expanduser('~/.bashrc')):
+
+    runner.run(f"ln -s /data/data/com.termux/files/usr/etc/bash.bashrc {os.path.expanduser('~/.bashrc')}")
+
+else:
+    runner.cprint(f"{os.path.expanduser('~/.bashrc')} already symlinked!", 3)
+
+cprint("-- Starting Installer --", 3)
 
 progs = []
 
@@ -28,7 +37,7 @@ for command in commands:
 
     run(command)
 
-print("Editing PS1 in bash.bashrc")
+cprint("Editing PS1 in bash.bashrc", "3")
 
 with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file:
 
@@ -38,6 +47,6 @@ with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file:
 
             file2.write("\n"+r"PS1='\w \$ '")
 
-print("-- Done!--")
+cprint("-- Done!--", 3)
 
 
