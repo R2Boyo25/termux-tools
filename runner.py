@@ -37,7 +37,7 @@ def checktermux(quitv=True):
 
     if not os.path.exists("/data/data/com.termux"):
 
-        cprint("This is not a Termux environment! Exiting...", 1)
+        cprint("This is not a Termux environment!", 1)
 
         return False
 
@@ -53,7 +53,7 @@ def checktermux(quitv=True):
 def checksd(quitv=True):
     if not os.path.exists("/storage/extSdCard/Android/data/com.termux/"):
 
-        cprint("SD card not found! Exiting...", 1)
+        cprint("SD card not found!", 1)
 
         return False
 
