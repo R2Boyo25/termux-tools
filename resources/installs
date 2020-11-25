@@ -4,5 +4,5 @@ git
 openssh
 nano
 root-repo
-cowsay
 man
+bash-completion
