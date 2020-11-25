@@ -35,7 +35,7 @@ def inval(bash2):
 
     for file in pyfiles:
 
-        print(f"Selecting {file}...")
+        #print(f"Selecting {file}...")
 
         for line in bash2:
 
@@ -45,23 +45,24 @@ def inval(bash2):
 
                 if (os.path.abspath(file) in line and not line.startswith("#")):
 
-                    print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
+                    print(end=""); #print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
 
                 elif file.replace(".py", "") in line and not line.startswith("#"):
 
-                    print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
+                    print(end=""); #print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
+
             except:
                 pass
 
-        print(f"Ending {file}...")
+        #print(f"Ending {file}...")
 
 for number in range(len(pyfiles)*2):
 
     inval(bash2)
  
-for file in pyfiles:
-
-    print(f"{file} is valid!")
+#for file in pyfiles:
+#
+#    print(f"{file} is valid!")
 
 print(f"--- Editing {bashfile} ---")
 

@@ -1,5 +1,19 @@
 import os
 
+def cprint(text, color):
+    c=str(color)
+
+    if not c.isdigit():
+
+        raise Exception("Argument 'color' must be a number")
+
+    os.system(f"tput setaf {c}")
+
+    print(text)
+
+    os.system("tput sgr0")
+
+
 def run(command, success="", error=""):
 
     if success == "":
@@ -11,59 +25,50 @@ def run(command, success="", error=""):
         error = f"{command} failed to run!"
 
     if not os.system(command):
-
-        os.system("tput setaf 2")
         
-        print(success)
-
-        os.system("tput sgr0")
+        cprint(success, 2)
 
     else:
 
-        os.system("tput setaf 1")
+        cprint(error, 1)
 
-        print(error)
 
-        os.system("tput sgr0")
+def checktermux(quitv=True):
 
-def checktermux():
+    if not os.path.exists("/data/data/com.termux"):
 
-    if not os.path.exists("/data/data/com.termux"): 
-        
-        os.system("tput setaf 1")
+        cprint("This is not a Termux environment! Exiting...", 1)
 
-        print("This is not a Termux environment! Exiting...")
+        return False
 
-        os.system("tput sgr0")
-        
+    else:
+
+        return True
+
+    if quitv:
+
         quit()
 
-def checksd():
-    if not os.path.exists("/storage/extSdCard/Android/data/com.termux/"): 
-        
-        os.system("tput setaf 1")
 
-        print("SD card not found! Exiting...")
+def checksd(quitv=True):
+    if not os.path.exists("/storage/extSdCard/Android/data/com.termux/"):
 
-        os.system("tput sgr0")
-        
+        cprint("SD card not found! Exiting...", 1)
+
+        return False
+
+    else:
+
+        return True
+
+    if quitv:
+
         quit()
+
 
 def checkreqs():
-    
+
     checktermux()
 
     checksd()
 
-def cprint(text, color):
-    c=str(color)
-
-    if not c.isdigit():
-        
-        raise Exception("Argument 'color' must be a number")
-
-    os.system(f"tput setaf {c}")
-
-    print(text)
-
-    os.system("tput sgr0")
