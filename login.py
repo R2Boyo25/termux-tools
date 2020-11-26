@@ -69,14 +69,6 @@ try:
 
                     break
 
-                elif password == "d3bug":
-
-                    motd()
-
-                    print("\nDebug Password Used\n")
-
-                    break
-
                 elif password == "forgot":
 
                     print("okay... ")
