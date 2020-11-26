@@ -68,7 +68,11 @@ def checksd(quitv=True):
 
 def checkreqs():
 
-    if not checktermux() and checksd():
+    if not checktermux():
+
+        quit()
+
+    if not checksd():
 
         quit()
 
