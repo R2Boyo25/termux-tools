@@ -66,6 +66,22 @@ with open ("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file2:
     
         file.write(file2d.replace("PS1='\$ '", "# This file has been edited by R2Boyo25's setup-termux.py #").replace("PS1=\"\$ \"", "# This file has been edited by R2Boyo25's setup-termux.py #")) 
 
+if not os.path.exists("/"+"/".join(os.path.abspath(__file__).split("/")[:-1])+"/gite"):
+
+    runner.run("git clone https://github.com/r2boyo25/gite")
+
+else:
+
+    runner.run(f'rm -r {"/"+"/".join(os.path.abspath(__file__).split("/")[:-1])+"/gite"}')
+
+with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file:
+
+    if not "/"+"/".join(os.path.abspath(__file__).split("/")[:-1])+"/gite/gite.py" in file.read():
+
+        with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "a") as file2:
+
+            file2.write(f"\n\nalias gite=\"python3 {'/'+'/'.join(os.path.abspath(__file__).split('/')[:-1])+'/gite/gite.py'}\"")
+
 runner.run("source /data/data/com.termux/files/usr/etc/bash.bashrc")
 
 cprint("-- Done!--", 3)
