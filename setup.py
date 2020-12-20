@@ -10,7 +10,7 @@ for root, dirs, files in os.walk("."):
 
         print(file, end=" - ")
 
-        if file.lower().endswith(".py") and file.split("/")[-1] not in ("setup.py", "setup-termux.py", "runner.py"):
+        if file.lower().endswith(".py") and file.split("/")[-1] not in ("login.py", "setup.py", "setup-termux.py", "runner.py"):
 
             pyfiles.append(file)
 
@@ -29,41 +29,32 @@ with open(bashfile, "r") as bash:
     bash2=bash.readlines()
 
 def inval(bash2):
+
     global pyfiles
 
     a=0
 
     for file in pyfiles:
 
-        #print(f"Selecting {file}...")
-
         for line in bash2:
-
-            line2=line.replace("\n", "")
 
             try:
 
                 if (os.path.abspath(file) in line and not line.startswith("#")):
 
-                    print(end=""); #print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
+                    pyfiles.pop( pyfiles.index( file ) )
 
                 elif file.replace(".py", "") in line and not line.startswith("#"):
 
-                    print(end=""); #print(f"{pyfiles.pop(pyfiles.index(file))} is invalid! Line: {line2}")
+                    pyfiles.pop( pyfiles.index( file ) )
 
             except:
                 pass
-
-        #print(f"Ending {file}...")
 
 for number in range(len(pyfiles)*2):
 
     inval(bash2)
  
-#for file in pyfiles:
-#
-#    print(f"{file} is valid!")
-
 print(f"--- Editing {bashfile} ---")
 
 with open(bashfile, "a") as bash:
