@@ -63,8 +63,8 @@ with open ("/data/data/com.termux/files/usr/etc/bash.bashrc", "r") as file2:
     print(file2d)
 
     with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "w") as file:
-    
-        file.write(file2d.replace("PS1='\$ '", "# This file has been edited by R2Boyo25's setup-termux.py #").replace("PS1=\"\$ \"", "# This file has been edited by R2Boyo25's setup-termux.py #")) 
+
+        file.write(file2d.replace("PS1='\$ '", "").replace("PS1=\"\$ \"", "")) 
 
 if not os.path.exists("/"+"/".join(os.path.abspath(__file__).split("/")[:-1])+"/gite"):
 

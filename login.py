@@ -53,7 +53,7 @@ if not os.path.exists("/data/data/com.termux/files/password.txt"):
 
         with open("/data/data/com.termux/files/usr/etc/bash.bashrc", "a") as bash:
 
-            bash.write(f"\n\npython3 {os.path.abspath('login.py')}\n\n")
+            bash.write(f"\n\nalias lock=\"python3 {os.path.abspath(__file__)}\"\n\nlock")
 
 try:
 
@@ -102,6 +102,9 @@ try:
                 print("\nNice Try, that doesn't work. :P")
 
             except KeyboardInterrupt:
+                print("\nNice Try, that doesn't work. :P")
+
+            except SystemError:
                 print("\nNice Try, that doesn't work. :P")
 
 except EOFError:
