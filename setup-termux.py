@@ -12,6 +12,10 @@ info=subprocess.check_output("termux-info".split()).decode().split("\n")
 
 devicename=info[info.index("Device model:")+1]
 
+### This was causing the bashrc to be run 2 times ###
+
+"""
+
 if not os.path.exists(os.path.expanduser('~/.bashrc')):
 
     runner.run(f"ln -s /data/data/com.termux/files/usr/etc/bash.bashrc {os.path.expanduser('~/.bashrc')}")
@@ -19,6 +23,8 @@ if not os.path.exists(os.path.expanduser('~/.bashrc')):
 else:
 
     runner.cprint(f"{os.path.expanduser('~/.bashrc')} already symlinked!", 3)
+
+"""
 
 cprint("-- Starting Installer --", 3)
 
